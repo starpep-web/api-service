@@ -1,8 +1,9 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import HttpStatus from 'http-status-codes';
 import logger from '@moonstar-x/logger';
 import { ApiResponseError, InternalServerError, ResourceNotFoundError } from '../shared/helpers/http/error';
 import { ResponseBuilder } from '../shared/helpers/http/response';
+import { ErrorCode } from '../shared/error/codes';
 
 type ErrorLike = Error & {
   toApiResponseError?: () => ApiResponseError
@@ -33,5 +34,5 @@ export const handleError = (error: Error, _req: Request, res: Response, next: Ne
 };
 
 export const routeNotFound = (_req: Request, _res: Response, next: NextFunction) => {
-  next(new ResourceNotFoundError('This route is not handled by the server.'));
+  next(new ResourceNotFoundError('This route is not handled by the server.', ErrorCode.ROUTE_NOT_FOUND));
 };

@@ -1,9 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { BadRequestError } from '../shared/helpers/http/error';
+import { ErrorCode } from '../shared/error/codes';
 
 export const jsonBodyRequired = (req: Request, _res: Response, next: NextFunction) => {
   if (!req.body || !Object.keys(req.body).length) {
-    next(new BadRequestError('A JSON body is required.'));
+    next(new BadRequestError('A JSON body is required.', ErrorCode.INVALID_BODY_PROVIDED));
     return;
   }
 

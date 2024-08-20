@@ -55,3 +55,14 @@ export class BadRequestError extends ApiResponseError {
     );
   }
 }
+
+export class QueryValidationError extends ApiResponseError {
+  constructor(message: string, code?: ErrorCode) {
+    super(
+      message,
+      'The provided query data is invalid.',
+      HttpStatus.BAD_REQUEST,
+      code
+    );
+  }
+}
