@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@moonstar-x/eslint-config/rules/typescript",
+    "@moonstar-x/eslint-config/rules/node"
+  ],
+  "parserOptions": {
+    "warnOnUnsupportedTypeScriptVersion": false
+  },
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-duplicate-enum-values": "off"
+  }
+}

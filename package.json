@@ -1,0 +1,44 @@
+{
+  "name": "api-service",
+  "version": "1.0.0",
+  "private": true,
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node ./src/index.ts",
+    "dev:watch": "cross-env NODE_ENV=development nodemon ./src/index.ts",
+    "build:prod": "tsc -p ./tsconfig.build.json",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .tsx,.ts,.js",
+    "lint:fix": "eslint . --ext .tsx,.ts,.js --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@moonstar-x/logger": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "glob": "^11.0.0",
+    "http-status-codes": "^2.3.0",
+    "neo4j-driver": "4.4",
+    "on-finished": "^2.4.1"
+  },
+  "devDependencies": {
+    "@moonstar-x/eslint-config": "^1.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.4.1",
+    "@types/on-finished": "^2.3.4",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
