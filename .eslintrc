@@ -9,6 +9,8 @@
   "rules": {
     "no-unused-vars": "off",
     "no-redeclare": "off",
-    "@typescript-eslint/no-duplicate-enum-values": "off"
+    "camelcase": "off",
+    "@typescript-eslint/no-duplicate-enum-values": "off",
+    "@typescript-eslint/no-namespace": "off"
   }
 }
