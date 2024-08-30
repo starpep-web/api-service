@@ -58,9 +58,9 @@ export namespace PeptideAttributes {
     mol_wt: 'molWt',
     aliphatic_index: 'aliphaticIndex'
   } as const;
-  export type RawPropertyName = keyof typeof RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP;
+  export type RawAttributeName = keyof typeof RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP;
 
-  export type Neo4jProperties = Record<RawPropertyName, number> & {
+  export type Neo4jProperties = Record<RawAttributeName, number> & {
     charge: Integer
     net_hydrogen: Integer
   };
@@ -95,8 +95,8 @@ export namespace PeptideAttributes {
   export type FullAttributes = StatisticalAttributes & OtherAttributes;
   export type AttributeName = keyof FullAttributes
 
-  export const isRawPropertyValid = (property?: string): property is RawPropertyName => {
-    return Object.keys(RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP).includes(property as RawPropertyName);
+  export const isRawAttributeNameValid = (attribute: unknown): attribute is RawAttributeName => {
+    return Object.keys(RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP).includes(attribute as RawAttributeName);
   };
 
   // export const getFriendlyNameForRawAttribute = (attributeName: RawPropertyName): string => {
