@@ -26,16 +26,6 @@ export const getRelationshipLabelFromRaw = (relationship: RawRelationshipLabel):
   return RELATIONSHIP_LABEL_MAP[relationship];
 };
 
-export const FRIENDLY_RELATIONSHIP_LABEL_MAP = RELATIONSHIP_LABELS.reduce((acc, raw, idx) => {
-  return {
-    ...acc,
-    [raw]: FRIENDLY_RELATIONSHIP_LABELS[idx]
-  };
-}, {} as Record<RelationshipLabel, FriendlyRelationshipLabel>);
-export const getFriendlyRelationshipLabel = (relationship: RelationshipLabel): FriendlyRelationshipLabel => {
-  return FRIENDLY_RELATIONSHIP_LABEL_MAP[relationship];
-};
-
 export type MetadataLabel = Exclude<NodeLabel, 'Peptide' | 'Attributes'>;
 export type MetadataRelationshipLabel = Exclude<RelationshipLabel, 'characterizedBy'>;
 
@@ -105,38 +95,13 @@ export namespace PeptideAttributes {
   export type FullAttributes = StatisticalAttributes & OtherAttributes;
   export type AttributeName = keyof FullAttributes
 
-  const REAL_ATTRIBUTE_TO_FRIENDLY_NAME_MAP: Record<AttributeName, string> = {
-    hydropathicity: 'Hydropathicity',
-    charge: 'Charge',
-    isoelectricPoint: 'Isoelectric Point',
-    bomanIndex: 'Boman Index',
-    gaacAlphatic: 'GAAC - Alphatic',
-    gaacAromatic: 'GAAC - Aromatic',
-    gaacPositiveCharge: 'GAAC - Positive Charge',
-    gaacNegativeCharge: 'GAAC - Negative Charge',
-    gaacUncharge: 'GAAC - Uncharge',
-    hydrophobicity: 'Hydrophobicity',
-    solvation: 'Solvation',
-    amphiphilicity: 'Amphiphilicity',
-    hydrophilicity: 'Hydrophilicity',
-    hemolyticProbScore: 'Hemolytic Prob Score',
-    stericHindrance: 'Steric Hindrance',
-    netHydrogen: 'Net Hydrogen',
-    molWt: 'Molar Weight',
-    aliphaticIndex: 'Aliphatic Index'
-  };
-
   export const isRawPropertyValid = (property?: string): property is RawPropertyName => {
     return Object.keys(RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP).includes(property as RawPropertyName);
   };
 
-  export const getFriendlyNameForRawAttribute = (attributeName: RawPropertyName): string => {
-    return REAL_ATTRIBUTE_TO_FRIENDLY_NAME_MAP[RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP[attributeName]];
-  };
-
-  export const getFriendlyNameForAttribute = (attributeName: AttributeName): string => {
-    return REAL_ATTRIBUTE_TO_FRIENDLY_NAME_MAP[attributeName];
-  };
+  // export const getFriendlyNameForRawAttribute = (attributeName: RawPropertyName): string => {
+  //   return REAL_ATTRIBUTE_TO_FRIENDLY_NAME_MAP[RAW_ATTRIBUTE_TO_REAL_ATTRIBUTE_MAP[attributeName]];
+  // };
 }
 
 export type SearchPeptide = BasePeptide & {
