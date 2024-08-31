@@ -1,4 +1,4 @@
-import { createAlphabet } from './array';
+import { createAlphabet, partitionArray } from './array';
 
 describe('Utils: Array', () => {
   describe('createAlphabet()', () => {
@@ -9,6 +9,20 @@ describe('Utils: Array', () => {
       expect(alphabet).toContain('A');
       expect(alphabet).toContain('M');
       expect(alphabet).toContain('Z');
+    });
+  });
+
+  describe('partitionArray()', () => {
+    it('should return an array with partitioned arrays inside.', () => {
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const expected = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [10]
+      ];
+
+      expect(partitionArray(arr, 3)).toStrictEqual(expected);
     });
   });
 });

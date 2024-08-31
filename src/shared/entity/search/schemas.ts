@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { TextQueryRequestPayload } from './models';
 
+// TODO: Filters should be the actual tuple instead.
 export const TextQuerySchema = z.object({
   sequence: z.string().optional(),
   regex: z.string().optional(),
