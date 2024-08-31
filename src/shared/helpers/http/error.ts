@@ -1,5 +1,6 @@
 import HttpStatus from 'http-status-codes';
 import { ErrorCode } from '../../error/codes';
+import { ZodIssue } from 'zod';
 
 export class ApiResponseError extends Error {
   public readonly status: number;
@@ -64,5 +65,27 @@ export class QueryValidationError extends ApiResponseError {
       HttpStatus.BAD_REQUEST,
       code
     );
+  }
+}
+
+export class SchemaValidationError extends ApiResponseError {
+  private readonly issues: ZodIssue[];
+
+  constructor(message: string, code: ErrorCode = ErrorCode.INVALID_BODY_PROVIDED, issues?: ZodIssue[]) {
+    super(
+      message,
+      'The body of this request does not conform to the validation schema.',
+      HttpStatus.BAD_REQUEST,
+      code
+    );
+
+    this.issues = issues ?? [];
+  }
+
+  public override getResponsePayload(): object {
+    return {
+      ...super.getResponsePayload(),
+      issues: this.issues
+    };
   }
 }
