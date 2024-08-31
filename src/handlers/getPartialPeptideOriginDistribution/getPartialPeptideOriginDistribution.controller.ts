@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import HttpStatus from 'http-status-codes';
 import { getPartialPeptideOriginDistribution } from './getPartialPeptideOriginDistribution.service';
-import { getValidatedPartialLimit } from '../../shared/validators/statistics';
+import { getValidatedPartialLimit } from '../../shared/entity/statistics/validators';
 import { ResponseBuilder } from '../../shared/helpers/http/response';
 
 export const get = async (req: Request, res: Response) => {

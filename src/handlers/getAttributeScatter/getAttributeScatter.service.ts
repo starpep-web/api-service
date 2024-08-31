@@ -1,5 +1,5 @@
 import { GraphDatabaseService } from '../../shared/services/neo4j/GraphDatabaseService';
-import { PeptideAttributes } from '../../shared/models/peptide';
+import { PeptideAttributes } from '../../shared/entity/peptide/models';
 import { Vector2 } from './getAttributeScatter.model';
 
 export const getAttributeScatter = async (xAttributeName: PeptideAttributes.RawAttributeName, yAttributeName: PeptideAttributes.RawAttributeName): Promise<Vector2[]> => {

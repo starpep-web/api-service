@@ -1,6 +1,6 @@
 import { int, QueryResult } from 'neo4j-driver';
 import { GraphDatabaseService } from '../../shared/services/neo4j/GraphDatabaseService';
-import { PeptideAttributes, Peptide, PeptideMetadata, RawRelationshipLabel, MetadataRelationshipLabel, getRelationshipLabelFromRaw, getPeptideId, extractPeptideIdentityFromId } from '../../shared/models/peptide';
+import { PeptideAttributes, Peptide, PeptideMetadata, RawRelationshipLabel, MetadataRelationshipLabel, getRelationshipLabelFromRaw, getPeptideId, extractPeptideIdentityFromId } from '../../shared/entity/peptide/models';
 
 const mapSearchPeptideAttributes = (properties: PeptideAttributes.Neo4jProperties): PeptideAttributes.SearchAttributes => {
   return {

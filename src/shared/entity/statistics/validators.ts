@@ -1,5 +1,5 @@
-import { QueryValidationError } from '../helpers/http/error';
-import { ErrorCode } from '../error/codes';
+import { QueryValidationError } from '../../helpers/http/error';
+import { ErrorCode } from '../../error/codes';
 
 export function getValidatedPartialLimit(limit: unknown): number | undefined;
 export function getValidatedPartialLimit(limit: unknown, defaultValue: number): number;

@@ -4,7 +4,7 @@ import { getAttributeScatter } from './getAttributeScatter.service';
 import { ResponseBuilder } from '../../shared/helpers/http/response';
 import { BadRequestError } from '../../shared/helpers/http/error';
 import { ErrorCode } from '../../shared/error/codes';
-import { PeptideAttributes } from '../../shared/models/peptide';
+import { PeptideAttributes } from '../../shared/entity/peptide/models';
 
 export const get = async (req: Request, res: Response) => {
   const { x: xAttribute, y: yAttribute } = req.query;

@@ -1,6 +1,6 @@
 import { GraphDatabaseService } from '../../shared/services/neo4j/GraphDatabaseService';
 import { createPagination, PaginationRequest, WithPagination } from '../../shared/utils/pagination';
-import { MetadataLabel } from '../../shared/models/peptide';
+import { MetadataLabel } from '../../shared/entity/peptide/models';
 
 const getMetadataSuggestions = async (nodeLabel: MetadataLabel, name: string, limit: number, skip: number): Promise<string[]> => {
   const db = GraphDatabaseService.getInstance();

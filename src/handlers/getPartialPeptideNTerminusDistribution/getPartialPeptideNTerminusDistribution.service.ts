@@ -1,5 +1,5 @@
 import { GraphDatabaseService } from '../../shared/services/neo4j/GraphDatabaseService';
-import { PartialRelationStatistics } from '../../shared/models/statistics';
+import { PartialRelationStatistics } from '../../shared/entity/statistics/models';
 
 export const getPartialPeptideNTerminusDistribution = async (limit: number): Promise<PartialRelationStatistics> => {
   const db = GraphDatabaseService.getInstance();

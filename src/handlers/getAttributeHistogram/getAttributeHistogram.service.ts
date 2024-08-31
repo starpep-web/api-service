@@ -2,7 +2,7 @@ import { Integer } from 'neo4j-driver';
 import { GraphDatabaseService } from '../../shared/services/neo4j/GraphDatabaseService';
 import { formatNumberDecimals } from '../../shared/utils/number';
 import { HistogramWidthMethod, HistogramData } from './getAttributeHistogram.model';
-import { PeptideAttributes } from '../../shared/models/peptide';
+import { PeptideAttributes } from '../../shared/entity/peptide/models';
 
 // Interpolation in query should be fine since attributeName is already validated prior.
 const generateHistogramQueryForAttribute = (attributeName: PeptideAttributes.RawAttributeName, widthMethod: HistogramWidthMethod): string => {

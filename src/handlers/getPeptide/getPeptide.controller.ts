@@ -4,7 +4,7 @@ import { getPeptideById, getPeptideBySequence } from './getPeptide.service';
 import { ResponseBuilder } from '../../shared/helpers/http/response';
 import { BadRequestError, ResourceNotFoundError } from '../../shared/helpers/http/error';
 import { ErrorCode } from '../../shared/error/codes';
-import { Peptide } from '../../shared/models/peptide';
+import { Peptide } from '../../shared/entity/peptide/models';
 
 const resolvePeptideFromRequest = (req: Request): Promise<Peptide | null> => {
   const { id, seq } = req.query;
