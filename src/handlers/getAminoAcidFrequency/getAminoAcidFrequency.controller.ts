@@ -13,7 +13,7 @@ export const get = async (req: Request, res: Response) => {
     throw new BadRequestError('Invalid type provided.', ErrorCode.INVALID_QUERY_PROVIDED);
   }
 
-  const frequency = type && typeof filter === 'string' ?
+  const frequency = type && typeof filter === 'string' && filter ?
     await getFilteredAminoAcidFrequency(type, filter) :
     await getTotalAminoAcidFrequency();
   const response = new ResponseBuilder()
