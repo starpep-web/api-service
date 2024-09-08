@@ -22,7 +22,7 @@ export const post = async (req: Request, res: Response) => {
     length: payload.length ? parseParamToSequenceLengthFilter(payload.length) : undefined
   };
 
-  const exportPayload = payload.sequence ?
+  const exportPayload = typeof payload.sequence !== 'undefined' ?
     await exportPayloadDataForPeptidesTextQuery(payload.sequence, filters) :
     await exportPayloadDataForPeptidesRegexQuery(payload.regex!, filters);
 

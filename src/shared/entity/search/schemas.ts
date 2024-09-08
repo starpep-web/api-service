@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { TextQueryRequestPayload } from './models';
 
+const checkString = (value: unknown): value is string => {
+  return typeof value === 'string';
+};
+
 // TODO: Filters should be the actual tuple instead.
 export const TextQuerySchema = z.object({
   sequence: z.string().optional(),
@@ -9,5 +13,5 @@ export const TextQuerySchema = z.object({
   attributes: z.array(z.string()).optional(),
   length: z.string().optional()
 })
-  .refine((data) => data.sequence || data.regex, 'Either sequence or regex must be provided.')
-  .refine((data) => (data.sequence && !data.regex) || (!data.sequence && data.regex), 'Only one of sequence or regex must be provided.') as z.ZodType<TextQueryRequestPayload>;
+  .refine((data) => checkString(data.sequence) || checkString(data.regex), 'Either sequence or regex must be provided.')
+  .refine((data) => (checkString(data.sequence) && !checkString(data.regex)) || (!checkString(data.sequence) && checkString(data.regex)), 'Only one of sequence or regex must be provided.') as z.ZodType<TextQueryRequestPayload>;

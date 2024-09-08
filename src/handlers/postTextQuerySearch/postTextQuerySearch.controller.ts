@@ -24,7 +24,7 @@ export const post = async (req: Request, res: Response) => {
     length: payload.length ? parseParamToSequenceLengthFilter(payload.length) : undefined
   };
 
-  const peptides = payload.sequence ?
+  const peptides = typeof payload.sequence !== 'undefined' ?
     await searchPeptidesTextQueryPaginated(paginationRequest, payload.sequence, filters) :
     await searchPeptidesRegexQueryPaginated(paginationRequest, payload.regex!, filters);
 
