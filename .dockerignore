@@ -1,0 +1,11 @@
+# Ignore everything by default.
+*
+
+# Manually add what to use.
+!src
+!Dockerfile
+!LICENSE
+!package*.json
+!README.md
+!tsconfig.base.json
+!tsconfig.build.json

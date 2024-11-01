@@ -8,7 +8,7 @@ No endpoint documentation is available yet since this API is not meant to be use
 
 In order to develop for this repository you need:
 
-* [Node.js v20.9.0](https://nodejs.org/en) (but any `v20` should work fine)
+* [Node.js v20.18.0](https://nodejs.org/en) (but any `v20` should work fine)
 * [Docker](https://www.docker.com/products/docker-desktop/)
 * Have [env-development](https://github.com/starpep-web/env-development) running locally.
 
