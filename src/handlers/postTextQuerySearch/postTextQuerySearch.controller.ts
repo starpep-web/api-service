@@ -28,9 +28,19 @@ export const post = async (req: Request, res: Response) => {
     await searchPeptidesTextQueryPaginated(paginationRequest, payload.sequence, filters) :
     await searchPeptidesRegexQueryPaginated(paginationRequest, payload.regex!, filters);
 
+  const context = {
+    params: {
+      query: (payload.sequence ?? payload.regex) as string,
+      regexEnabled: payload.hasOwnProperty('regex'),
+      length: filters.length || null,
+      metadata: filters.metadata || [],
+      attributes: filters.attributes || []
+    }
+  };
+
   const response = new ResponseBuilder()
     .withStatusCode(HttpStatus.OK)
-    .withData(peptides);
+    .withData({ ...peptides, context });
 
   res.status(response.code).send(response.build());
 };
